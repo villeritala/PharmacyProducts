@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pharmacy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Add product</h1>
+	<div>
+		<form th:object="${product}" th:action="@{/save}" action="#" method="post">
+		  	<label for="vnr">VNR</label>
+			<input type="text" id="vrn" th:field="*{vnr}" />
+			<p class="text-danger" th:if="${#fields.hasErrors('vnr')}" th:errors="*{vnr}">First name error</p>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  		<label for="name">Name</label>
+				<input type="text" id="name" th:field="*{name}" />
+				<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">First name error</p>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  		<label for="price">Price</label>
+				<input type="text" th:field="*{price}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+				<label for="amount">Amount</label>
+				<input type="text" th:field="*{amount}" />
+			
+			
+			<div class="form-group">
+			<label for="manulist">Manufacture</label>
+				<select id="manulist" th:field="*{manufacture}">
+					<option th:each="manufacture: ${manufactures}" th:value="${manufacture.manuId}" th:text="${manufacture.manuName}"></option>
+				</select>
+			</div>
+			<div class="form-group">
+			<label for="wholelist">Wholesale</label>
+				<select id="wholelist" th:field="*{wholesale}">
+					<option th:each="wholesale: ${wholesales}" th:value="${wholesale.wholeId}" th:text="${wholesale.wholeName}"></option>
+				</select>
+			</div>
+    		
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save" class="btn btn-success"></input>
+		</form>
+	</div>
+</body>
+</html>
