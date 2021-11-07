@@ -41,7 +41,7 @@
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${product.prodId})}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a></td>	 			
     	</tr>
      </table>
-	 <a href="/add" class="btn btn-success">Add product</a>
+	 <a href="/add" id="add" class="btn btn-success">Add product</a>
 </div>
 </body>
 </html>
