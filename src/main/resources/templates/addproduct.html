@@ -6,6 +6,17 @@
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
+	<nav class="navbar navbar-light bg-light">
+		  <span class="navbar-text" style="font-size:160%; color:black">
+		    [[#{app.header}]]
+		  </span>
+		  <div class="nav-item">
+	        	<a class="nav-link" th:href="@{?lang=en}"><img th:src="@{/images/united-kingdom.png}" width="30"></a>
+	      </div>
+	      <div class="nav-item">
+	        	<a class="nav-link" th:href="@{?lang=fi}"><img th:src="@{/images/finland.png}" width="30"></a>
+	      </div>
+	</nav>
 	<h1>[[#{add.product}]]</h1>
 	<div>
 		<form th:object="${product}" th:action="@{/save}" action="#" method="post">
