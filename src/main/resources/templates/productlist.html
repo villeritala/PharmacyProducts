@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>Pharmacy</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>[[#{app.title}]]</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
@@ -14,24 +14,24 @@
         
     </div>
 	<div class="col-md-4">
-		<h4>[[#{app.title}]]</h4>
+		<h4>[[#{app.header}]]</h4>
 	</div>
 	<div class="col-md-4">
-		<p th:inline="text">Welcome to the pharmacy app [[${#httpServletRequest.remoteUser}]]</p>
+		<p th:inline="text">[[#{app.welcome}]] [[${#httpServletRequest.remoteUser}]]</p>
 	</div>
 	<div class="col-md-4" style="padding:20px 0">
 		<form th:action="@{/logout}" method="post">
-			<input type="submit" id="Sign Out" value="Sign Out" class="btn btn-sm btn-danger"/>
+			<input type="submit" id="Sign Out" value="[[#{product.out}]]" class="btn btn-sm btn-danger"/>
 		</form>
 	</div>
     <table class="table table-secondary">
 		<tr class="bg-success">
 		    <th>VNR</th>
-		    <th>Name</th>
-		    <th>Price</th>
-		    <th>Amount</th>
-		    <th>Manufacture</th>
-		    <th>Wholesale</th>
+		    <th>[[#{product.name}]]</th>
+		    <th>[[#{product.price}]]</th>
+		    <th>[[#{product.amount}]]</th>
+		    <th>[[#{product.manufacture}]]</th>
+		    <th>[[#{product.wholesale}]]</th>
 		    <th></th>
 		    <th></th>
 		</tr>  
@@ -46,7 +46,7 @@
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${product.prodId})}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a></td>	 			
     	</tr>
      </table>
-	 <a href="/add" id="add" class="btn btn-success">Add product</a>
+	 <a href="/add" id="add" class="btn btn-success">[[#{product.add}]]</a>
 </div>
 </body>
 </html>
