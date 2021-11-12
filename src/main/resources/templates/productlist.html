@@ -46,8 +46,8 @@
     		<td th:text="${product.amount}"></td> 
     		<td th:text="${product.manufacture.manuName}"></td>
     		<td th:text="${product.wholesale.wholeName}"></td> 
-    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${product.prodId})}" class="btn btn-danger"><i class="bi-trash"></i></a></td>
-    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${product.prodId})}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a></td>	 			
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${product.prodId})}" class="btn btn-danger" id="delete"><i class="bi-trash"></i></a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${product.prodId})}" class="btn btn-success" id="edit"><i class="bi bi-pencil-square"></i></a></td>	 			
     	</tr>
      </table>
 	 <a href="/add" id="add" class="btn btn-success">[[#{product.add}]]</a>
